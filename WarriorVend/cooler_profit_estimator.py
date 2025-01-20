@@ -1,26 +1,27 @@
 import streamlit as st
-st.markdown(
-    """
-    <style>
-        body {
-            background-color: black;
-            color: white;
-        }
-        .stApp {
-            background-color: black;
-            color: white;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 import os
 import sys
 
 # App Title
 st.title("Smart Cooler Profit Estimator")
 st.write("Enter the estimated daily foot traffic to calculate projected monthly net profit.")
+
+# Apply Dark Blue Background and White Text
+st.markdown(
+    """
+    <style>
+        body {
+            background-color: #0A192F; /* Dark Blue */
+            color: white;
+        }
+        .stApp {
+            background-color: #0A192F; /* Dark Blue */
+            color: white;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Constants
 cooler_capacity_drink_only = 240  # Total drinks per drink-only cooler

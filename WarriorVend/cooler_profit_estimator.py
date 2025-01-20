@@ -63,6 +63,7 @@ estimated_daily_revenue = foot_traffic * 0.39
 
 # Function to calculate net profit and number of coolers needed
 def calculate_net_profit():
+    global monthly_labor_cost, sales_tax_cost, credit_card_cost
     projected_monthly_sales_value = estimated_daily_revenue * 31
     estimated_refills_per_month = projected_monthly_sales_value / ((1 - refill_threshold) * cooler_capacity * 2.61)
     monthly_labor_hours = estimated_refills_per_month * time_per_refill
@@ -75,9 +76,9 @@ def calculate_net_profit():
     total_operating_costs = monthly_labor_cost + data_cost + financing_cost + sales_tax_cost + credit_card_cost
     net_profit = projected_monthly_profit - total_operating_costs
     
-    return projected_monthly_sales_value, total_operating_costs, projected_monthly_profit, net_profit, coolers_needed
+    return projected_monthly_sales_value, total_operating_costs, projected_monthly_profit, net_profit, coolers_needed, monthly_labor_cost, sales_tax_cost, credit_card_cost
 
-monthly_sales, operating_costs, monthly_profit, net_profit, coolers_needed = calculate_net_profit()
+monthly_sales, operating_costs, monthly_profit, net_profit, coolers_needed, monthly_labor_cost, sales_tax_cost, credit_card_cost = calculate_net_profit()
 
 with col3:
     st.header("📊 Results")

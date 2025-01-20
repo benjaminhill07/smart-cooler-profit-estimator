@@ -6,16 +6,16 @@ import sys
 st.title("Smart Cooler Profit Estimator")
 st.write("Enter the estimated daily foot traffic to calculate projected monthly net profit.")
 
-# Apply Dark Blue Background and White Text
+# Apply Dark Green Background and White Text
 st.markdown(
     """
     <style>
         body {
-            background-color: #0A192F; /* Dark Blue */
+            background-color: #013220; /* Dark Green */
             color: white;
         }
         .stApp {
-            background-color: #0A192F; /* Dark Blue */
+            background-color: #013220; /* Dark Green */
             color: white;
         }
     </style>

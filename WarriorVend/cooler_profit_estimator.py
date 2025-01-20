@@ -31,7 +31,7 @@ with col1:
     foot_traffic = st.number_input("Daily Foot Traffic", min_value=1, max_value=5000, value=50, step=10)
     cooler_type = st.radio("Cooler Type", ("Drink-Only", "Drink & Snack Mix"))
     data_cost_per_cooler = st.number_input("Data Cost Per Cooler ($)", min_value=0, max_value=500, value=45, step=5)
-    refill_threshold_percent = st.number_input("Refill Threshold (%)", min_value=10, max_value=100, value=65, step=5)
+    refill_threshold_percent = st.number_input("Stock Levels Until Refill (%)", min_value=10, max_value=100, value=65, step=5)
     time_per_refill = st.number_input("Time Per Refill (Hours)", min_value=1, max_value=5, value=2, step=1)
     avg_drink_profit_margin = st.number_input("Drink Profit Margin (%)", min_value=10, max_value=100, value=60, step=1)
     avg_snack_profit_margin = st.number_input("Snack Profit Margin (%)", min_value=10, max_value=100, value=58, step=1)
@@ -63,7 +63,7 @@ else:
 # Function to calculate net profit and number of coolers needed
 def calculate_net_profit():
     projected_monthly_sales_value = estimated_daily_revenue * 31
-    estimated_refills_per_month = projected_monthly_sales_value / (cooler_capacity * refill_threshold * 2.61)
+    estimated_refills_per_month = projected_monthly_sales_value / ((1 - refill_threshold) * cooler_capacity * 2.61)
     monthly_labor_hours = estimated_refills_per_month * time_per_refill
     monthly_labor_cost = monthly_labor_hours * employee_wage if use_employee else 0
     coolers_needed = max(1, round(foot_traffic / 100))

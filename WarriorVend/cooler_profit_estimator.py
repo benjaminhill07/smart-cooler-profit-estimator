@@ -23,17 +23,18 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# User Inputs
-col1, col2 = st.columns([1, 2])
+# Improved Layout with More Columns
+col1, col2, col3 = st.columns([1, 2, 1])
 
 with col1:
+    st.header("🔧 Inputs")
     foot_traffic = st.number_input("Daily Foot Traffic", min_value=1, max_value=5000, value=50, step=10)
-    cooler_type = st.radio("What type of cooler will you use?", ("Drink-Only", "Drink & Snack Mix"))
+    cooler_type = st.radio("Cooler Type", ("Drink-Only", "Drink & Snack Mix"))
     data_cost_per_cooler = st.number_input("Data Cost Per Cooler ($)", min_value=0, max_value=500, value=45, step=5)
     refill_threshold_percent = st.number_input("Refill Threshold (%)", min_value=10, max_value=100, value=65, step=5)
     time_per_refill = st.number_input("Time Per Refill (Hours)", min_value=1, max_value=5, value=2, step=1)
-    avg_drink_profit_margin = st.number_input("Average Drink Sale Profit Margin (%)", min_value=10, max_value=100, value=60, step=1)
-    avg_snack_profit_margin = st.number_input("Average Snack Sale Profit Margin (%)", min_value=10, max_value=100, value=58, step=1)
+    avg_drink_profit_margin = st.number_input("Drink Profit Margin (%)", min_value=10, max_value=100, value=60, step=1)
+    avg_snack_profit_margin = st.number_input("Snack Profit Margin (%)", min_value=10, max_value=100, value=58, step=1)
     
     use_employee = st.checkbox("Are you paying someone to service the location?")
     employee_wage = 0
@@ -76,11 +77,18 @@ def calculate_net_profit():
 monthly_sales, operating_costs, monthly_profit, net_profit, coolers_needed = calculate_net_profit()
 
 with col2:
-    st.write(f"### 📊 Projected Monthly Sales: **${monthly_sales:,.2f}**")
-    st.write(f"### 🔧 Operating Costs: **${operating_costs:,.2f}**")
-    st.write(f"### 💰 Projected Monthly Profit: **${monthly_profit:,.2f}**")
-    st.write(f"### ✅ Estimated Monthly Net Profit: **${net_profit:,.2f}**")
-    st.write(f"### 🧊 Estimated Coolers Needed: **{coolers_needed}**")
+    st.header("📊 Results")
+    st.write(f"### Projected Monthly Sales: **${monthly_sales:,.2f}**")
+    st.write(f"### Operating Costs: **${operating_costs:,.2f}**")
+    st.write(f"### Projected Monthly Profit: **${monthly_profit:,.2f}**")
+    st.write(f"### Estimated Monthly Net Profit: **${net_profit:,.2f}**")
+    st.write(f"### Estimated Coolers Needed: **{coolers_needed}**")
+
+with col3:
+    st.header("🔍 Assumptions")
+    st.write(f"Refill Threshold: **{refill_threshold_percent}%**")
+    st.write(f"Time Per Refill: **{time_per_refill} hours**")
+    st.write(f"Data Cost Per Cooler: **${data_cost_per_cooler}**")
 
 if __name__ == "__main__":
     script_path = os.path.abspath(__file__)

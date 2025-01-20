@@ -2,33 +2,38 @@ import streamlit as st
 import os
 import sys
 
-# App Title
-st.title("Smart Cooler Profit Estimator")
-st.write("See how much you can make with a Smart Cooler!")
-
-# Apply White Background and Black Text
+# Apply Video Background
 st.markdown(
     """
     <style>
-        body {
-            background-color: white; /* White Background */
-            color: black;
-        }
-        .stApp {
-            background-color: white; /* White Background */
-            color: black;
+        body, .stApp {
+            background: url('https://res.cloudinary.com/kitchenmate/video/upload/v1736462167/NRF-store-POS-2_pdp0us.mp4');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.15; /* Adjust opacity to make it a subtle background */ /* Replace with actual video URL */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
     </style>
     """,
     unsafe_allow_html=True
 )
 
+# App Title
+st.markdown("""
+    <h1 style='text-align: center;'>Smart Cooler Profit Estimator</h1>
+""", unsafe_allow_html=True)
+st.markdown("""
+    <h3 style='text-align: center;'>See how much you can make with a Smart Cooler!</h3>
+""", unsafe_allow_html=True)
+
 # Improved Layout with Three Full-Width Columns
 col1, col2, col3 = st.columns(3)
 
 with col1:
     st.header("🔧 Selection Options")
-    
     use_employee = st.checkbox("Are you paying someone to service the location?")
     has_financing = st.checkbox("Are there any monthly financing costs associated with the location?")
 
@@ -42,7 +47,6 @@ with col2:
     state_sales_tax = st.number_input("State Sales Tax Rate (%)", min_value=0.0, max_value=15.0, value=7.75, step=0.1)
     credit_card_fee = st.number_input("Credit Card Service Fee (%)", min_value=0.0, max_value=10.0, value=5.95, step=0.1)
     
-    
     employee_wage = 0
     if use_employee:
         employee_wage = st.number_input("Enter hourly wage for employee", min_value=1.0, max_value=100.0, value=18.0, step=0.1)
@@ -52,11 +56,7 @@ with col2:
         financing_cost = st.number_input("Enter monthly financing cost", min_value=0, max_value=10000, value=0, step=10)
 
 # Constants
-cooler_capacity_drink_only = 240
-cooler_capacity_mixed = 279
-refill_threshold = (refill_threshold_percent / 100)
-
-cooler_capacity = cooler_capacity_mixed
+cooler_capacity = 279
 profit_margin = avg_product_profit_margin / 100
 estimated_daily_revenue = foot_traffic * 0.39
 
@@ -64,7 +64,7 @@ estimated_daily_revenue = foot_traffic * 0.39
 def calculate_net_profit():
     global monthly_labor_cost, sales_tax_cost, credit_card_cost, data_cost
     projected_monthly_sales_value = estimated_daily_revenue * 31
-    estimated_refills_per_month = projected_monthly_sales_value / ((1 - refill_threshold) * cooler_capacity * 2.61)
+    estimated_refills_per_month = projected_monthly_sales_value / ((1 - refill_threshold_percent/100) * cooler_capacity * 2.61)
     monthly_labor_hours = estimated_refills_per_month * time_per_refill
     monthly_labor_cost = monthly_labor_hours * employee_wage if use_employee else 0
     coolers_needed = max(1, round(foot_traffic / 100))

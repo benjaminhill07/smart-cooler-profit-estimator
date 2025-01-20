@@ -23,25 +23,28 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Improved Layout with More Columns
-col1, col2 = st.columns([1, 2])
+# Improved Layout with Three Full-Width Columns
+col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.header("🔧 Inputs")
-    foot_traffic = st.number_input("Daily Foot Traffic", min_value=1, max_value=5000, value=50, step=10)
+    st.header("🔧 Selection Options")
     cooler_type = st.radio("Cooler Type", ("Drink-Only", "Drink & Snack Mix"))
+    use_employee = st.checkbox("Are you paying someone to service the location?")
+    has_financing = st.checkbox("Are there any monthly financing costs associated with the location?")
+
+with col2:
+    st.header("📝 Input Data")
+    foot_traffic = st.number_input("Daily Foot Traffic", min_value=1, max_value=5000, value=50, step=10)
     data_cost_per_cooler = st.number_input("Data Cost Per Cooler ($)", min_value=0, max_value=500, value=45, step=5)
     refill_threshold_percent = st.number_input("Stock Levels Until Refill (%)", min_value=10, max_value=100, value=65, step=5)
     time_per_refill = st.number_input("Time Per Refill (Hours)", min_value=1, max_value=5, value=2, step=1)
     avg_drink_profit_margin = st.number_input("Drink Profit Margin (%)", min_value=10, max_value=100, value=60, step=1)
     avg_snack_profit_margin = st.number_input("Snack Profit Margin (%)", min_value=10, max_value=100, value=58, step=1)
     
-    use_employee = st.checkbox("Are you paying someone to service the location?")
     employee_wage = 0
     if use_employee:
         employee_wage = st.number_input("Enter hourly wage for employee", min_value=1, max_value=100, value=18, step=1)
     
-    has_financing = st.checkbox("Are there any monthly financing costs associated with the location?")
     financing_cost = 0
     if has_financing:
         financing_cost = st.number_input("Enter monthly financing cost", min_value=0, max_value=10000, value=0, step=10)
@@ -76,7 +79,7 @@ def calculate_net_profit():
 
 monthly_sales, operating_costs, monthly_profit, net_profit, coolers_needed = calculate_net_profit()
 
-with col2:
+with col3:
     st.header("📊 Results")
     st.write(f"### Projected Monthly Sales: **${monthly_sales:,.2f}**")
     st.write(f"### Operating Costs: **${operating_costs:,.2f}**")

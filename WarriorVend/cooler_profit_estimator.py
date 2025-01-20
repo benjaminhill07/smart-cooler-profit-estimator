@@ -38,8 +38,8 @@ with col2:
     data_cost_per_cooler = st.number_input("Data Cost Per Cooler ($)", min_value=0, max_value=500, value=45, step=5)
     refill_threshold_percent = st.number_input("Stock Levels Until Refill (%)", min_value=10, max_value=100, value=65, step=5)
     time_per_refill = st.number_input("Time Per Refill (Hours)", min_value=1, max_value=5, value=2, step=1)
-    avg_drink_profit_margin = st.number_input("Drink Profit Margin (%)", min_value=10, max_value=100, value=60, step=1)
-    avg_snack_profit_margin = st.number_input("Snack Profit Margin (%)", min_value=10, max_value=100, value=58, step=1)
+    avg_product_profit_margin = st.number_input("Average Product Profit Margin (%)", min_value=10, max_value=100, value=59, step=1)
+    
     
     employee_wage = 0
     if use_employee:
@@ -55,7 +55,7 @@ cooler_capacity_mixed = 279
 refill_threshold = (refill_threshold_percent / 100)
 
 cooler_capacity = cooler_capacity_mixed
-profit_margin = avg_snack_profit_margin / 100
+profit_margin = avg_product_profit_margin / 100
 estimated_daily_revenue = foot_traffic * 0.39
 
 # Function to calculate net profit and number of coolers needed

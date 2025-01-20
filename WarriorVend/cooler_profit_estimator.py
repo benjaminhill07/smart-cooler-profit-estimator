@@ -17,7 +17,7 @@ st.markdown(
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://res.cloudinary.com/kitchenmate/video/upload/v1736462167/NRF-store-POS-2_pdp0us.mp4') no-repeat center center/cover;
+            background: url('smartcoolerimage.png') no-repeat center center/cover;
             z-index: -1;
             opacity: 0.3; /* Darker overlay to improve contrast */
         }

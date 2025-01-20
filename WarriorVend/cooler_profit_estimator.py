@@ -28,7 +28,7 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.header("🔧 Selection Options")
-    cooler_type = st.radio("Cooler Type", ("Drink-Only", "Drink & Snack Mix"))
+    
     use_employee = st.checkbox("Are you paying someone to service the location?")
     has_financing = st.checkbox("Are there any monthly financing costs associated with the location?")
 
@@ -54,16 +54,9 @@ cooler_capacity_drink_only = 240
 cooler_capacity_mixed = 279
 refill_threshold = (refill_threshold_percent / 100)
 
-if cooler_type == "Drink-Only":
-    cooler_capacity = cooler_capacity_drink_only
-    profit_margin = avg_drink_profit_margin / 100
-    # Adjust for drink selections impact
-    option_correlation_factor = 1.65  # Sales increase based on vending machine vs. cooler options
-    estimated_daily_revenue = foot_traffic * 0.23 * option_correlation_factor
-else:
-    cooler_capacity = cooler_capacity_mixed
-    profit_margin = avg_snack_profit_margin / 100
-    estimated_daily_revenue = foot_traffic * 0.39
+cooler_capacity = cooler_capacity_mixed
+profit_margin = avg_snack_profit_margin / 100
+estimated_daily_revenue = foot_traffic * 0.39
 
 # Function to calculate net profit and number of coolers needed
 def calculate_net_profit():

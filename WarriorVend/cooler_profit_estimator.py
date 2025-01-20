@@ -34,6 +34,9 @@ with col1:
 
 with col2:
     st.header("📝 Input Data")
+    state_sales_tax = st.number_input("State Sales Tax Rate (%)", min_value=0.0, max_value=15.0, value=7.75, step=0.1)
+    credit_card_fee = st.number_input("Credit Card Service Fee (%)", min_value=0.0, max_value=10.0, value=5.95, step=0.1)
+    st.header("📝 Input Data")
     foot_traffic = st.number_input("Daily Foot Traffic", min_value=1, max_value=5000, value=50, step=10)
     data_cost_per_cooler = st.number_input("Data Cost Per Cooler ($)", min_value=0, max_value=500, value=45, step=5)
     refill_threshold_percent = st.number_input("Stock Levels Until Refill (%)", min_value=10, max_value=100, value=65, step=5)
@@ -67,7 +70,9 @@ def calculate_net_profit():
     coolers_needed = max(1, round(foot_traffic / 100))
     data_cost = coolers_needed * data_cost_per_cooler
     projected_monthly_profit = projected_monthly_sales_value * profit_margin
-    total_operating_costs = monthly_labor_cost + data_cost + financing_cost
+    sales_tax_cost = (state_sales_tax / 100) * projected_monthly_sales_value
+    credit_card_cost = (credit_card_fee / 100) * projected_monthly_sales_value
+    total_operating_costs = monthly_labor_cost + data_cost + financing_cost + sales_tax_cost + credit_card_cost
     net_profit = projected_monthly_profit - total_operating_costs
     
     return projected_monthly_sales_value, total_operating_costs, projected_monthly_profit, net_profit, coolers_needed
@@ -78,6 +83,11 @@ with col3:
     st.header("📊 Results")
     st.write(f"### Projected Monthly Sales: **${monthly_sales:,.2f}**")
     st.write(f"### Operating Costs: **${operating_costs:,.2f}**")
+    st.write(f"- Labor Cost: **${monthly_labor_cost:,.2f}**")
+    st.write(f"- Data Cost: **${data_cost:,.2f}**")
+    st.write(f"- Financing Cost: **${financing_cost:,.2f}**")
+    st.write(f"- Sales Tax Cost: **${sales_tax_cost:,.2f}**")
+    st.write(f"- Credit Card Fees: **${credit_card_cost:,.2f}**")
     st.write(f"### Projected Monthly Profit: **${monthly_profit:,.2f}**")
     st.write(f"### Estimated Monthly Net Profit: **${net_profit:,.2f}**")
     st.write(f"### Estimated Coolers Needed: **{coolers_needed}**")

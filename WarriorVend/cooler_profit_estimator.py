@@ -9,7 +9,9 @@ st.markdown(
         body, .stApp {
             background: url('https://raw.githubusercontent.com/benjaminhill07/smart-cooler-profit-estimator/main/WarriorVend/smartcoolerimage.png') no-repeat center center fixed;
             background-size: cover;
-            color: white; /* Ensure text remains visible */
+            filter: brightness(1.3) opacity(0.3); /* Lightens the image and makes it slightly transparent */
+            background-size: cover;
+            color: black; /* Ensure text remains visible */
         }
         .stApp::before {
             content: '';

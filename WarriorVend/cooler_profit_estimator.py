@@ -82,13 +82,13 @@ monthly_sales, operating_costs, monthly_profit, net_profit, coolers_needed, mont
 with col3:
     st.header("📊 Results")
     st.write(f"### Projected Monthly Sales: **${monthly_sales:,.2f}**")
+    st.write(f"### Projected Monthly Profit: **${monthly_profit:,.2f}**")
     st.write(f"### Operating Costs: **${operating_costs:,.2f}**")
     st.write(f"- Labor Cost: **${monthly_labor_cost:,.2f}**")
     st.write(f"- Data Cost: **${data_cost:,.2f}**")
     st.write(f"- Financing Cost: **${financing_cost:,.2f}**")
     st.write(f"- Sales Tax Cost: **${sales_tax_cost:,.2f}**")
     st.write(f"- Credit Card Fees: **${credit_card_cost:,.2f}**")
-    st.write(f"### Projected Monthly Profit: **${monthly_profit:,.2f}**")
     st.write(f"### Estimated Monthly Net Profit: **${net_profit:,.2f}**")
     st.write(f"### Estimated Coolers Needed: **{coolers_needed}**")
 

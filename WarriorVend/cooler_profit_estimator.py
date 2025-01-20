@@ -7,41 +7,19 @@ st.markdown(
     """
     <style>
         body, .stApp {
-            position: relative;
+            background: url('smartcoolerimage.png') no-repeat center center fixed;
+            background-size: cover;
             color: white; /* Ensure text remains visible */
         }
-        body::before {
+        .stApp::before {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('smartcoolerimage.png') no-repeat center center/cover;
+            background: rgba(0, 0, 0, 0.3); /* Adds a subtle dark overlay for contrast */
             z-index: -1;
-            opacity: 0.3; /* Darker overlay to improve contrast */
-        }
-            position: relative;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://res.cloudinary.com/kitchenmate/video/upload/v1736462167/NRF-store-POS-2_pdp0us.mp4') no-repeat center center/cover;
-            z-index: -1;
-            opacity: 0.15; /* Ensuring a subtle background effect */
-        }
-            background: url('https://res.cloudinary.com/kitchenmate/video/upload/v1736462167/NRF-store-POS-2_pdp0us.mp4');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            opacity: 0.15; /* Adjust opacity to make it a subtle background */ /* Replace with actual video URL */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
         }
     </style>
     """,

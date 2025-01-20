@@ -1,4 +1,20 @@
 import streamlit as st
+st.markdown(
+    """
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        .stApp {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 import os
 import sys
 

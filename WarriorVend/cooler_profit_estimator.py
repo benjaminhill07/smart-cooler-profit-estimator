@@ -57,7 +57,9 @@ refill_threshold = (refill_threshold_percent / 100)
 if cooler_type == "Drink-Only":
     cooler_capacity = cooler_capacity_drink_only
     profit_margin = avg_drink_profit_margin / 100
-    estimated_daily_revenue = foot_traffic * 0.76
+    # Adjust for drink selections impact
+    option_correlation_factor = 1.65  # Sales increase based on vending machine vs. cooler options
+    estimated_daily_revenue = foot_traffic * 0.23 * option_correlation_factor
 else:
     cooler_capacity = cooler_capacity_mixed
     profit_margin = avg_snack_profit_margin / 100

@@ -2,48 +2,12 @@ import streamlit as st
 import os
 import sys
 
-# Apply Video Background
-st.markdown(
-    """
-    <style>
-        body, .stApp {
-            position: relative;
-            color: black !important;
-            font-weight: bold;
-        }
-            background: url('https://raw.githubusercontent.com/benjaminhill07/smart-cooler-profit-estimator/main/WarriorVend/smartcoolerimage.png') no-repeat center center fixed;
-            background-size: cover;
-            opacity: 0.2; /* Reduce opacity further */
-            background-size: cover;
-            position: absolute;
-            z-index: -2;
-            background-size: cover;
-            background-size: cover;
-            filter: brightness(1) opacity(0.2); /* Lightens the image and makes it slightly transparent */
-            background-size: cover;
-            color: black !important; position: relative; z-index: 1; /* Ensure text remains visible */
-        }
-        .stApp::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.7); /* Lighten the overlay for more contrast */ /* Adds a subtle dark overlay for contrast */
-            z-index: -10;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # App Title
 st.markdown("""
-    <h1 style='text-align: center; color: white; font-weight: bold;'>Smart Cooler Profit Estimator</h1>
+    <h1 style='text-align: center; color: black; font-weight: bold;'>Smart Cooler Profit Estimator</h1>
 """, unsafe_allow_html=True)
 st.markdown("""
-    <h3 style='text-align: center; color: white; font-weight: bold;'>See how much you can make with a Smart Cooler!</h3>
+    <h3 style='text-align: center; color: black; font-weight: bold;'>See how much you can make with a Smart Cooler!</h3>
 """, unsafe_allow_html=True)
 
 # Improved Layout with Three Full-Width Columns

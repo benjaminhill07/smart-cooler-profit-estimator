@@ -8,6 +8,20 @@ st.markdown(
     <style>
         body, .stApp {
             position: relative;
+            color: white; /* Ensure text remains visible */
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://res.cloudinary.com/kitchenmate/video/upload/v1736462167/NRF-store-POS-2_pdp0us.mp4') no-repeat center center/cover;
+            z-index: -1;
+            opacity: 0.3; /* Darker overlay to improve contrast */
+        }
+            position: relative;
         }
         body::before {
             content: '';
@@ -36,10 +50,10 @@ st.markdown(
 
 # App Title
 st.markdown("""
-    <h1 style='text-align: center; color: black; font-weight: bold;'>Smart Cooler Profit Estimator</h1>
+    <h1 style='text-align: center; color: white; font-weight: bold;'>Smart Cooler Profit Estimator</h1>
 """, unsafe_allow_html=True)
 st.markdown("""
-    <h3 style='text-align: center; color: black; font-weight: bold;'>See how much you can make with a Smart Cooler!</h3>
+    <h3 style='text-align: center; color: white; font-weight: bold;'>See how much you can make with a Smart Cooler!</h3>
 """, unsafe_allow_html=True)
 
 # Improved Layout with Three Full-Width Columns

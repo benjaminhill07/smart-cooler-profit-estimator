@@ -7,7 +7,7 @@ st.markdown(
     """
     <style>
         body, .stApp {
-            background: url('smartcoolerimage.png') no-repeat center center fixed;
+            background: url('https://raw.githubusercontent.com/benjaminhill07/smart-cooler-profit-estimator/main/WarriorVend/smartcoolerimage.png') no-repeat center center fixed;
             background-size: cover;
             color: white; /* Ensure text remains visible */
         }

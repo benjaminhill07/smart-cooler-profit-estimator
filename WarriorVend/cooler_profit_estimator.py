@@ -45,7 +45,7 @@ with col2:
     
     employee_wage = 0
     if use_employee:
-        employee_wage = st.number_input("Enter hourly wage for employee", min_value=1, max_value=100, value=18, step=1)
+        employee_wage = st.number_input("Enter hourly wage for employee", min_value=1.0, max_value=100.0, value=18.0, step=0.1)
     
     financing_cost = 0
     if has_financing:

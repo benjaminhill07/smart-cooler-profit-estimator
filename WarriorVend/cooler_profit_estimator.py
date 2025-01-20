@@ -7,7 +7,13 @@ st.markdown(
     """
     <style>
         body, .stApp {
+            position: relative;
+            color: black !important;
+            font-weight: bold;
+        }
             background: url('https://raw.githubusercontent.com/benjaminhill07/smart-cooler-profit-estimator/main/WarriorVend/smartcoolerimage.png') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.2; /* Reduce opacity further */
             background-size: cover;
             position: absolute;
             z-index: -2;
@@ -24,8 +30,8 @@ st.markdown(
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.5); /* Adds a subtle dark overlay for contrast */
-            z-index: -1;
+            background: rgba(255, 255, 255, 0.7); /* Lighten the overlay for more contrast */ /* Adds a subtle dark overlay for contrast */
+            z-index: -10;
         }
     </style>
     """,

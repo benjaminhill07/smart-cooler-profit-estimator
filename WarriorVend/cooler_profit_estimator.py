@@ -36,7 +36,7 @@ with col2:
     st.header("📝 Input Data")
     foot_traffic = st.number_input("Daily Foot Traffic", min_value=1, max_value=5000, value=50, step=10)
     refill_threshold_percent = st.number_input("Stock Levels Until Refill (%)", min_value=10, max_value=100, value=65, step=5)
-    time_per_refill = st.number_input("Time Per Refill (Hours)", min_value=1, max_value=5, value=2, step=1)
+    time_per_refill = st.number_input("Time Per Refill (Hours)", min_value=1.0, max_value=5.0, value=2.0, step=0.1)
     avg_product_profit_margin = st.number_input("Average Product Profit Margin (%)", min_value=10, max_value=100, value=59, step=1)
     data_cost_per_cooler = st.number_input("Data Cost Per Cooler ($)", min_value=0, max_value=500, value=45, step=5)
     state_sales_tax = st.number_input("State Sales Tax Rate (%)", min_value=0.0, max_value=15.0, value=7.75, step=0.1)

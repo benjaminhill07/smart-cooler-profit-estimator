@@ -24,7 +24,7 @@ st.markdown(
 )
 
 # Improved Layout with More Columns
-col1, col2, col3 = st.columns([1, 2, 1])
+col1, col2 = st.columns([1, 2])
 
 with col1:
     st.header("🔧 Inputs")
@@ -83,12 +83,6 @@ with col2:
     st.write(f"### Projected Monthly Profit: **${monthly_profit:,.2f}**")
     st.write(f"### Estimated Monthly Net Profit: **${net_profit:,.2f}**")
     st.write(f"### Estimated Coolers Needed: **{coolers_needed}**")
-
-with col3:
-    st.header("🔍 Assumptions")
-    st.write(f"Refill Threshold: **{refill_threshold_percent}%**")
-    st.write(f"Time Per Refill: **{time_per_refill} hours**")
-    st.write(f"Data Cost Per Cooler: **${data_cost_per_cooler}**")
 
 if __name__ == "__main__":
     script_path = os.path.abspath(__file__)

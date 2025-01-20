@@ -4,7 +4,7 @@ import sys
 
 # App Title
 st.title("Smart Cooler Profit Estimator")
-st.write("Enter the estimated daily foot traffic to calculate projected monthly net profit.")
+st.write("See how much you can make with a Smart Cooler!")
 
 # Apply White Background and Black Text
 st.markdown(
